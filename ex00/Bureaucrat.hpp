@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/10 06:51:23 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/10 07:50:13 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@ class Bureaucrat
 		std::int32_t getGrade();
 		void	incremental_grade();
 		void	decremental_grade();
-		// Bureaucrat &operator<<(); //  insertion («) operator to print something like (without the angle brackets):
 		// std::exception GradeTooHighException(); mauvais implementation class neccessaire
 		// std::exception GradeTooLowException();
-	private:
+		private:
 		const std::string	name;
 		std::int32_t 		Grade;
 };
-
+	
+std::ostream& operator<<(std::ostream& out, Bureaucrat& b); //  insertion («) operator to print something like (without the angle brackets):
 // std::exception Bureaucrat::GradeTooHighException()
 // {
 // 	if (this->Grade < 1)
@@ -103,6 +103,12 @@ class Bureaucrat
 // 	if (this->Grade > 150)
 // 		return (std::exception());
 // }
+
+std::ostream&	operator<<(std::ostream& out, Bureaucrat& b)
+{
+	out << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl;
+	return (out);
+}
 
 void	Bureaucrat::incremental_grade()
 {

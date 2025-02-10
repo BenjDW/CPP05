@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:11 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/10 07:27:56 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/10 07:52:14 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main()
 	{
         Bureaucrat	b(151); // Trop bas
     } 
-	catch (const std::exception &e) {
+	catch (const std::exception &e)
+	{
         std::cerr << "Erreur : " << e.what() << std::endl;
     }
 
@@ -34,9 +35,11 @@ int	main()
     try
 	{
         Bureaucrat b(1);
+		std::cout << b;
         b.incremental_grade(); // Trop haut après incrément
     } 
-	catch (const std::exception &e) {
+	catch (const std::exception &e)
+	{
         std::cerr << "Erreur : " << e.what() << std::endl;
     }
 
