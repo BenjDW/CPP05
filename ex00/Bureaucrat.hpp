@@ -6,9 +6,12 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/10 07:50:13 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/11 07:40:22 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <ostream>
@@ -76,7 +79,7 @@ class GradeTooLowException : public std::exception
 class Bureaucrat
 {
 	public:
-		Bureaucrat(/* args */);
+		Bureaucrat();
 		Bureaucrat(int lvl);
 		Bureaucrat(Bureaucrat& cpy);
 		~Bureaucrat();
@@ -180,3 +183,5 @@ Bureaucrat::Bureaucrat(Bureaucrat &cpy)
 Bureaucrat::~Bureaucrat()
 {
 }
+
+#endif
