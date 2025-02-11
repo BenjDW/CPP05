@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:11 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 05:58:50 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/11 07:44:33 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main()
 {
 	try 
 	{
-        Bureaucrat	b(151); // Trop bas
+        Bureaucrat	b(151);
     } 
 	catch (const std::exception &e)
 	{
@@ -25,7 +25,7 @@ int	main()
 
     try 
 	{
-        Bureaucrat b(0); // Trop haut
+        Bureaucrat b(0);
     }
 	catch (const std::exception &e)
 	{
@@ -36,7 +36,7 @@ int	main()
 	{
         Bureaucrat b(1);
 		std::cout << b;
-        b.incremental_grade(); // Trop haut après incrément
+        b.incremental_grade();
     } 
 	catch (const std::exception &e)
 	{
