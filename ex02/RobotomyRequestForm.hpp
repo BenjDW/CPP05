@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:10 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 14:04:42 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 05:19:11 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class RobotomyRequestForm : public Form
 {
 	public:
-		RobotomyRequestForm(/* args */);
+		RobotomyRequestForm();
 		~RobotomyRequestForm();
 	private:
-		/* data */
+		std::string	target;
 };
 
 RobotomyRequestForm::RobotomyRequestForm(/* args */)

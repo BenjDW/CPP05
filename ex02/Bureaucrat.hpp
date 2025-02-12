@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 08:40:32 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 02:17:28 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <iomanip>
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 class Form;
 
 class GradeTooHighException : public std::exception
@@ -52,6 +52,7 @@ class Bureaucrat
 		void	incremental_grade();
 		void	decremental_grade();
 		void	signForm(Form& form);//
+		void 	executeForm(Form const & form);
 	private:
 		const std::string	name;
 		std::int32_t 		Grade;

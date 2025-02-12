@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 13:31:45 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 02:35:28 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ class Form
 	public:
 		Form();
 		Form(const std::string named);
+		Form(const std::string named, int32_t grad, int32_t grad_ex);// polymorphisme
 		Form(Form &cpy); // return copie du contenue
 		~Form();
-		void			beSigned(Bureaucrat& agent);
+		void			beSigned(Bureaucrat& agent); 
+		virtual const void	execute(Bureaucrat const &executor) = 0;
+		//passe la fonction en heritage et abstraite force de la reimplemente dans les class dérive
 		const int32_t	getGrade();
 		bool			getSigne();
 		std::string		getName();

@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:09:34 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 13:59:20 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 01:55:25 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm();
 		~ShrubberyCreationForm();
 	private:
-		
+		std::string	target;
 };
 
 ShrubberyCreationForm::ShrubberyCreationForm()

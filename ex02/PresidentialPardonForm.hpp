@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:27 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 14:05:38 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 05:14:21 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,33 @@
 class PresidentialPardonForm : public Form
 {
 	public:
-		PresidentialPardonForm(/* args */);
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(PresidentialPardonForm &cpy);
 		~PresidentialPardonForm();
+		const	void execute(); //execute la version presidentialform
 	private:
-		/* data */
+		std::string	target;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(/* args */)
+const void	PresidentialPardonForm::execute()
+{
+	if (this->getSigne() != true)
+		throw (AlreadySignedException()); 
+	if (this->getGrade() > this->getGrade_exec())
+		throw (GradeTooLowException());
+	std::cout << "Informs that " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm() : Form ("PresidentialPardonForm", 25, 5), target ("Céliant")
+{
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form ("PresidentialPardonForm", 25, 5), target (target)
+{
+}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy) : Form (cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
 {
 }
 
