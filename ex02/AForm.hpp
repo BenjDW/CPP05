@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/12 02:35:28 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 07:23:55 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <string>
 #include <exception>
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 class Bureaucrat;
 
 class AlreadySignedException : public std::exception
@@ -53,5 +54,14 @@ class Form
 };
 
 std::ostream&	operator<<(std::ostream& out, Form& f);
+
+const void	Form::execute(Bureaucrat const &agent)
+{
+	if (this->getSigne() != true)
+		throw (NotSignedForm());
+	if (this->getGrade() > this->getGrade_exec())
+		throw (GradeTooLowException());
+	std::cout << "Informs that " << this->name << " Form has been execute." << std::endl;
+}
 
 // #endif

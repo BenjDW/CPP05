@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:27 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/12 05:14:21 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/12 05:35:57 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 // Informs that <target> has been pardoned by Zaphod Beeblebrox.
 
 #include "AForm.hpp"
+
+class NotSignedForm : public std::exception
+{
+	public:
+		const char* what() const noexcept
+		{
+			return "The form is not signed!";
+		}
+};
 
 class PresidentialPardonForm : public Form
 {
@@ -30,7 +39,7 @@ class PresidentialPardonForm : public Form
 const void	PresidentialPardonForm::execute()
 {
 	if (this->getSigne() != true)
-		throw (AlreadySignedException()); 
+		throw (NotSignedForm());
 	if (this->getGrade() > this->getGrade_exec())
 		throw (GradeTooLowException());
 	std::cout << "Informs that " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
