@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:10 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/24 02:42:32 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 09:55:26 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 // successfully 50% of the time. Otherwise, informs that the robotomy failed.
 #pragma once
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+// class NotSignedForm : public std::exception
+// {
+// 	public:
+// 		const char* what() const noexcept
+// 		{
+// 			return "The form is not signed!";
+// 		}
+// };
 
 class RobotomyRequestForm : public Form
 {
@@ -23,18 +33,24 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm &cpy);
 		~RobotomyRequestForm();
-		const void execute();
+		void execute(Bureaucrat const &agent) const;
 	private:
 		std::string	target;
 };
 
-const void	RobotomyRequestForm::execute()
+void	RobotomyRequestForm::execute(Bureaucrat const &agent) const
 {
+	std::srand(std::time(NULL)); // Initialise le générateur aléatoire
+	
 	if (this->getSigne() != true)
-		throw (AlreadySignedException()); 
-	if (this->getGrade() > this->getGrade_exec())
-		throw (GradeTooLowException());
-	std::cout << "Informs that " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+		throw (NotSignedForm()); 
+	if (agent.getGrade() > this->getGrade_exec())
+		throw (GradeTooLowException());	
+	std::cout << "BZZZZZZZT... *drilling noises* 🔩⚙️" << std::endl;
+	if (std::rand() % 2 == 0) // Génère un nombre pseudo-aléatoire
+		std::cout << "Informs that " << this->target << " has been robotomized in to a random human" << std::endl;
+	else
+		std::cout << "Informs that robotomy failed... oups céliant is still céliant" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm() : Form ("RobotomyRequestForm", 72, 45), target ("Céliant")
