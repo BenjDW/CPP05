@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:08:14 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/25 09:52:46 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 10:21:40 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 // int main()
 // {
@@ -34,27 +35,47 @@
 // 	return 0;
 // }
 
-int main()
-{
-	try
-	{
-		// Création d'un bureaucrate avec un grade suffisant
-		Bureaucrat bob(40);
-		std::cout << bob << std::endl;
+// int main()
+// {
+// 	try
+// 	{
+// 		// Création d'un bureaucrate avec un grade suffisant
+// 		Bureaucrat bob(40);
+// 		std::cout << bob << std::endl;
 
-		// Création du formulaire
-		RobotomyRequestForm form("Céliant");
-		std::cout << "Form created: " << form.getName() << std::endl;
+// 		// Création du formulaire
+// 		RobotomyRequestForm form("Céliant");
+// 		std::cout << "Form created: " << form.getName() << std::endl;
 
-		// Signature du formulaire
-		bob.signForm(form);
+// 		// Signature du formulaire
+// 		bob.signForm(form);
 		
-		// Exécution du formulaire
-		bob.executeForm(form);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Erreur : " << e.what() << std::endl;
-	}
-	return 0;
+// 		// Exécution du formulaire
+// 		bob.executeForm(form);
+// 	}
+// 	catch (std::exception &e)
+// 	{
+// 		std::cerr << "Erreur : " << e.what() << std::endl;
+// 	}
+// 	return 0;
+// }
+
+int main() {
+    try {
+        Bureaucrat bob(40);  // Grade suffisamment haut pour exécuter le formulaire
+        ShrubberyCreationForm form("garden");
+
+        std::cout << "--- Avant signature ---" << std::endl;
+        bob.executeForm(form);  // Devrait échouer car non signé
+        
+        std::cout << "--- Signature du formulaire ---" << std::endl;
+        bob.signForm(form);
+        
+        std::cout << "--- Après signature, tentative d'exécution ---" << std::endl;
+        bob.executeForm(form);  // Devrait fonctionner et générer un fichier "garden_shrubbery"
+        
+    } catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+    return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/24 02:29:04 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 10:13:04 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iomanip>
 #include <string>
 #include <exception>
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
