@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/24 02:11:41 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 10:51:55 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,16 @@ class Bureaucrat
 		void	decremental_grade();
 		void	signForm(Form& form);//
 		void 	executeForm(Form const &form);
+		Bureaucrat	&operator=(Bureaucrat cpy);
 	private:
 		const std::string	name;
 		std::int32_t 		Grade;
 };
+
+Bureaucrat& Bureaucrat::operator=(Bureaucrat cpy)
+{
+	return *this;
+}
 
 // Lastly, add the executeForm(AForm const & form) member function to the Bureaucrat.
 //It must attempt to execute the form. If it’s successful, print something like:

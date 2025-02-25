@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:27 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/24 02:06:29 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 10:48:16 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm &cpy);
 		~PresidentialPardonForm();
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm cpy);
 		void execute(Bureaucrat const &agen) const; //execute la version presidentialform
 	private:
 		std::string	target;
 };
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm cpy)
+{
+	return *this;
+}
 
 void	PresidentialPardonForm::execute(Bureaucrat const &agent) const
 {

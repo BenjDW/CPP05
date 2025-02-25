@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:10 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/25 09:55:26 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 10:49:50 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm &cpy);
 		~RobotomyRequestForm();
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm cpy);
 		void execute(Bureaucrat const &agent) const;
 	private:
 		std::string	target;
 };
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm cpy)
+{
+	return *this;
+}
 
 void	RobotomyRequestForm::execute(Bureaucrat const &agent) const
 {

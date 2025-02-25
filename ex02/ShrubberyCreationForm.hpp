@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:09:34 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/25 10:16:49 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/25 10:50:35 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm &cpy);
 		~ShrubberyCreationForm();
+		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm cpy);
 		void execute(Bureaucrat const &agent) const;
 	private:
 		std::string	target;
@@ -80,6 +81,11 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &agent) const
 	of << "⠀⠐⠚⠛⠛⠉⠁⠸⣿⣿⣿⠃⠀⠀⠀⠀⠀⠈⠻⣿⡏⠀⠀⠉⠙⠻⠿⣦⡀⠀" << std::endl;
 	of << "⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
 	of.close();
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm cpy)
+{
+	return *this;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm() : Form ("ShrubberyCreationForm", 145, 137), target ("Céliant")
