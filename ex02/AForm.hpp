@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/12 07:23:55 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/24 02:29:04 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <string>
 #include <exception>
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
+
 class Bureaucrat;
 
 class AlreadySignedException : public std::exception
@@ -35,17 +35,16 @@ class Form
 {
 	public:
 		Form();
-		Form(const std::string named);
 		Form(const std::string named, int32_t grad, int32_t grad_ex);// polymorphisme
 		Form(Form &cpy); // return copie du contenue
-		~Form();
+		virtual	~Form();
 		void			beSigned(Bureaucrat& agent); 
-		virtual const void	execute(Bureaucrat const &executor) = 0;
 		//passe la fonction en heritage et abstraite force de la reimplemente dans les class dérive
-		const int32_t	getGrade();
-		bool			getSigne();
-		std::string		getName();
-		const int32_t	getGrade_exec();
+		virtual void	execute(Bureaucrat const &agen) const = 0;
+		int32_t	getGrade() const;
+		bool			getSigne() const;
+		std::string		getName() const;
+		int32_t	getGrade_exec() const;
 	private:
 		std::string 	name;//name of the form
 		bool			signe;//are form signed ?
@@ -55,13 +54,13 @@ class Form
 
 std::ostream&	operator<<(std::ostream& out, Form& f);
 
-const void	Form::execute(Bureaucrat const &agent)
-{
-	if (this->getSigne() != true)
-		throw (NotSignedForm());
-	if (this->getGrade() > this->getGrade_exec())
-		throw (GradeTooLowException());
-	std::cout << "Informs that " << this->name << " Form has been execute." << std::endl;
-}
+// void	Form::execute(Bureaucrat const &agent) const
+// {
+// 	if (this->getSigne() != true)
+// 		throw (NotSignedForm());
+// 	if (this->getGrade() > this->getGrade_exec())
+// 		throw (GradeTooLowException());
+// 	std::cout << "Informs that " << this->name << " Form has been execute." << std::endl;
+// }
 
 // #endif

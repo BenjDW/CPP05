@@ -6,11 +6,25 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 08:22:18 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/24 02:34:55 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+void	Bureaucrat::executeForm(Form const &form)
+{
+	try 
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	} 
+	catch (const std::exception &e)
+	{
+		std::cerr << this->getName() << " couldn't execute " << form.getName()
+		          << " because " << e.what() << std::endl;
+	}
+}
 
 void	Bureaucrat::signForm(Form& form)
 {
@@ -51,7 +65,7 @@ std::string	Bureaucrat::getName()
 	return (this->name);
 }
 
-std::int32_t	Bureaucrat::getGrade()
+std::int32_t	Bureaucrat::getGrade() const
 {
 	return (this->Grade);
 }
