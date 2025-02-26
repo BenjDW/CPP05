@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/25 10:51:55 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:15:09 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form;
 class GradeTooHighException : public std::exception
 {
 		public:
-			const char* what() const noexcept 
+			const char* what() const throw() 
 			{
 				return "Grade Too High !";
 			}
@@ -34,7 +34,7 @@ class GradeTooHighException : public std::exception
 class GradeTooLowException : public std::exception
 {
 	public:
-		const char* what() const noexcept 
+		const char* what() const throw()
 		{
 			return "Grade Too Low !";
 		}
@@ -48,7 +48,7 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat& cpy);
 		~Bureaucrat();
 		std::string	getName();
-		std::int32_t getGrade() const;
+		int getGrade() const;
 		void	incremental_grade();
 		void	decremental_grade();
 		void	signForm(Form& form);//
@@ -56,13 +56,8 @@ class Bureaucrat
 		Bureaucrat	&operator=(Bureaucrat cpy);
 	private:
 		const std::string	name;
-		std::int32_t 		Grade;
+		int 		Grade;
 };
-
-Bureaucrat& Bureaucrat::operator=(Bureaucrat cpy)
-{
-	return *this;
-}
 
 // Lastly, add the executeForm(AForm const & form) member function to the Bureaucrat.
 //It must attempt to execute the form. If it’s successful, print something like:

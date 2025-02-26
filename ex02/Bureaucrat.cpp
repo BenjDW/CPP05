@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/24 02:34:55 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:25:31 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,15 @@ std::string	Bureaucrat::getName()
 	return (this->name);
 }
 
-std::int32_t	Bureaucrat::getGrade() const
+int	Bureaucrat::getGrade() const
 {
 	return (this->Grade);
+}
+
+Bureaucrat& Bureaucrat::operator=(Bureaucrat cpy)
+{
+	this->Grade = cpy.Grade;
+	return *this;
 }
 
 Bureaucrat::Bureaucrat() : name ("bobby")

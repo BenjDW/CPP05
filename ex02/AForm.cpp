@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:09:16 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/24 02:28:38 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:16:41 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ std::string	Form::getName() const
 	return (this->name);
 }
 
-int32_t	Form::getGrade_exec() const
+int	Form::getGrade_exec() const
 {
 	return (this->grade_exec);
 }
 
-int32_t	Form::getGrade() const
+int	Form::getGrade() const
 {
 	return (this->grade);
 }
@@ -58,7 +58,7 @@ Form::Form() : name ("Triple The Tax"), signe (false), grade (11), grade_exec (1
         throw GradeTooLowException();
 }
 
-Form::Form(const std::string named, int32_t grad, int32_t grad_ex) : signe (false), grade (grad), grade_exec (grad_ex)
+Form::Form(const std::string named, int grad, int grad_ex) : signe (false), grade (grad), grade_exec (grad_ex)
 {
 	this->name = named;
 	if (grade < 1)

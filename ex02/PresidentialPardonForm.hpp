@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:27 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/25 10:48:16 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:11:38 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class NotSignedForm : public std::exception
 {
 	public:
-		const char* what() const noexcept
+		const char* what() const throw()
 		{
 			return "The form is not signed!";
 		}
@@ -39,32 +39,32 @@ class PresidentialPardonForm : public Form
 		std::string	target;
 };
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm cpy)
-{
-	return *this;
-}
+// PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm cpy)
+// {
+// 	return *this;
+// }
 
-void	PresidentialPardonForm::execute(Bureaucrat const &agent) const
-{
-	if (this->getSigne() != true)
-		throw (NotSignedForm());
-	if (agent.getGrade() > this->getGrade_exec())
-		throw (GradeTooLowException());
-	std::cout << "Informs that " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-}
+// void	PresidentialPardonForm::execute(Bureaucrat const &agent) const
+// {
+// 	if (this->getSigne() != true)
+// 		throw (NotSignedForm());
+// 	if (agent.getGrade() > this->getGrade_exec())
+// 		throw (GradeTooLowException());
+// 	std::cout << "Informs that " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+// }
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5), target ("Céliant")
-{
-}
+// PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5), target ("Céliant")
+// {
+// }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5), target (target)
-{
-}
+// PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5), target (target)
+// {
+// }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy) : Form(cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
-{
-}
+// PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy) : Form(cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
+// {
+// }
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-}
+// PresidentialPardonForm::~PresidentialPardonForm()
+// {
+// }
