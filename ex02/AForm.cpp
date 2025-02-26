@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:09:16 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:16:41 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 03:08:15 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ int	Form::getGrade_exec() const
 int	Form::getGrade() const
 {
 	return (this->grade);
+}
+
+Form& Form::operator=(Form const &cpy)
+{
+	this->name = cpy.getName();
+	this->signe = cpy.getSigne();
+	return *this;
 }
 
 Form::Form() : name ("Triple The Tax"), signe (false), grade (11), grade_exec (12)
