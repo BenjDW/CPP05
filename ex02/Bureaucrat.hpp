@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:15:09 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:56:52 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <string>
 #include <exception>
 #include "AForm.hpp"
-class Form;
+class AForm;
 
 class GradeTooHighException : public std::exception
 {
@@ -51,30 +51,30 @@ class Bureaucrat
 		int getGrade() const;
 		void	incremental_grade();
 		void	decremental_grade();
-		void	signForm(Form& form);//
-		void 	executeForm(Form const &form);
+		void	signForm(AForm& AForm);//
+		void 	executeForm(AForm const &AForm);
 		Bureaucrat	&operator=(Bureaucrat cpy);
 	private:
 		const std::string	name;
 		int 		Grade;
 };
 
-// Lastly, add the executeForm(AForm const & form) member function to the Bureaucrat.
-//It must attempt to execute the form. If it’s successful, print something like:
-// <bureaucrat> executed <form>
+// Lastly, add the executeForm(AForm const & AForm) member function to the Bureaucrat.
+//It must attempt to execute the AForm. If it’s successful, print something like:
+// <bureaucrat> executed <AForm>
 // If not, print an explicit error message.
 // Implement and turn in some tests to ensure everything works as expected.
 
-// void	Bureaucrat::executeForm(Form const &form)
+// void	Bureaucrat::executeForm(AForm const &AForm)
 // {
 // 	try 
 // 	{
-// 		form.execute(*this);
-// 		std::cout << this->getName() << " executed " << form.getGrade() << std::endl;
+// 		AForm.execute(*this);
+// 		std::cout << this->getName() << " executed " << AForm.getGrade() << std::endl;
 // 	} 
 // 	catch (const std::exception &e)
 // 	{
-// 		std::cerr << this->getName() << " couldn't execute " << form.getName()
+// 		std::cerr << this->getName() << " couldn't execute " << AForm.getName()
 // 		          << " because " << e.what() << std::endl;
 // 	}
 // }

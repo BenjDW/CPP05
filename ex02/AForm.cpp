@@ -6,19 +6,19 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:09:16 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 03:08:15 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:56:49 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-std::ostream&	operator<<(std::ostream& out, Form& f)
+std::ostream&	operator<<(std::ostream& out, AForm& f)
 {
-	out << f.getName() << " Form , Form grade " << f.getGrade() << ", Form grade execution " << f.getGrade_exec() << std::endl;
+	out << f.getName() << " AForm , AForm grade " << f.getGrade() << ", AForm grade execution " << f.getGrade_exec() << std::endl;
 	return (out);
 }
 
-void	Form::beSigned(Bureaucrat& agent)
+void	AForm::beSigned(Bureaucrat& agent)
 {
 	if (agent.getGrade() < 1)
 		throw(GradeTooHighException());
@@ -30,34 +30,34 @@ void	Form::beSigned(Bureaucrat& agent)
 		throw(AlreadySignedException());
 }
 
-bool	Form::getSigne() const
+bool	AForm::getSigne() const
 {
 	return (this->signe);
 }
 
-std::string	Form::getName() const
+std::string	AForm::getName() const
 {
 	return (this->name);
 }
 
-int	Form::getGrade_exec() const
+int	AForm::getGrade_exec() const
 {
 	return (this->grade_exec);
 }
 
-int	Form::getGrade() const
+int	AForm::getGrade() const
 {
 	return (this->grade);
 }
 
-Form& Form::operator=(Form const &cpy)
+AForm& AForm::operator=(AForm const &cpy)
 {
 	this->name = cpy.getName();
 	this->signe = cpy.getSigne();
 	return *this;
 }
 
-Form::Form() : name ("Triple The Tax"), signe (false), grade (11), grade_exec (12)
+AForm::AForm() : name ("Triple The Tax"), signe (false), grade (11), grade_exec (12)
 {
 	if (grade < 1)
         throw GradeTooHighException();
@@ -65,7 +65,7 @@ Form::Form() : name ("Triple The Tax"), signe (false), grade (11), grade_exec (1
         throw GradeTooLowException();
 }
 
-Form::Form(const std::string named, int grad, int grad_ex) : signe (false), grade (grad), grade_exec (grad_ex)
+AForm::AForm(const std::string named, int grad, int grad_ex) : signe (false), grade (grad), grade_exec (grad_ex)
 {
 	this->name = named;
 	if (grade < 1)
@@ -74,10 +74,10 @@ Form::Form(const std::string named, int grad, int grad_ex) : signe (false), grad
         throw GradeTooLowException();
 }
 
-Form::Form(Form &cpy) : name(cpy.name), signe(cpy.signe), grade(cpy.grade), grade_exec(cpy.grade_exec)
+AForm::AForm(AForm &cpy) : name(cpy.name), signe(cpy.signe), grade(cpy.grade), grade_exec(cpy.grade_exec)
 {
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 }

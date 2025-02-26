@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:10 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 01:56:03 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:57:24 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 // 	public:
 // 		const char* what() const noexcept
 // 		{
-// 			return "The form is not signed!";
+// 			return "The AForm is not signed!";
 // 		}
 // };
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
 	public:
 		RobotomyRequestForm();
@@ -59,15 +59,15 @@ class RobotomyRequestForm : public Form
 // 		std::cout << "Informs that robotomy failed... oups céliant is still céliant" << std::endl;
 // }
 
-// RobotomyRequestForm::RobotomyRequestForm() : Form ("RobotomyRequestForm", 72, 45), target ("Céliant")
+// RobotomyRequestForm::RobotomyRequestForm() : AForm ("RobotomyRequestForm", 72, 45), target ("Céliant")
 // {
 // }
 
-// RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form ("RobotomyRequestForm", 72, 45), target (target)
+// RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm ("RobotomyRequestForm", 72, 45), target (target)
 // {
 // }
 
-// RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) : Form (cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
+// RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) : AForm (cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
 // {
 // }
 

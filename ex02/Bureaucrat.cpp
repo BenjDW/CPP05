@@ -6,37 +6,37 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:25:31 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:56:50 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void	Bureaucrat::executeForm(Form const &form)
+void	Bureaucrat::executeForm(AForm const &AForm)
 {
 	try 
 	{
-		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+		AForm.execute(*this);
+		std::cout << this->getName() << " executed " << AForm.getName() << std::endl;
 	} 
 	catch (const std::exception &e)
 	{
-		std::cerr << this->getName() << " couldn't execute " << form.getName()
+		std::cerr << this->getName() << " couldn't execute " << AForm.getName()
 		          << " because " << e.what() << std::endl;
 	}
 }
 
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(AForm& AForm)
 {
 	try 
 	{
-		form.beSigned(*this);
-		// if (form.getSigne() == true)
-			std::cout << this->name << " signed " << form.getName() << std::endl;
+		AForm.beSigned(*this);
+		// if (AForm.getSigne() == true)
+			std::cout << this->name << " signed " << AForm.getName() << std::endl;
 	} 
 	catch (const std::exception& e) 
 	{
-		std::cout << this->name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << this->name << " couldn’t sign " << AForm.getName() << " because " << e.what() << std::endl;
 	}
 }
 

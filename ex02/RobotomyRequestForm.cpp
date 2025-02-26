@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 01:54:26 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:45:13 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:57:26 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void	RobotomyRequestForm::execute(Bureaucrat const &agent) const
 		std::cout << "Informs that robotomy failed... oups céliant is still céliant" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm() : Form ("RobotomyRequestForm", 72, 45), target ("Céliant")
+RobotomyRequestForm::RobotomyRequestForm() : AForm ("RobotomyRequestForm", 72, 45), target ("Céliant")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form ("RobotomyRequestForm", 72, 45), target (target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm ("RobotomyRequestForm", 72, 45), target (target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) : Form (cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) : AForm (cpy.getName(), cpy.getGrade(), cpy.getGrade_exec()), target (cpy.target)
 {
 }
 

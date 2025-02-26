@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 03:08:12 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:57:40 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ class AlreadySignedException : public std::exception
 		};
 };
 
-class Form
+class AForm
 {
 	public:
-		Form();
-		Form(const std::string named, int grad, int grad_ex);// polymorphisme
-		Form(Form &cpy); // return copie du contenue
-		virtual	~Form();
+		AForm();
+		AForm(const std::string named, int grad, int grad_ex);// polymorphisme
+		AForm(AForm &cpy); // return copie du contenue
+		virtual	~AForm();
 		void			beSigned(Bureaucrat& agent); 
 		//passe la fonction en heritage et abstraite force de la reimplemente dans les class dérive
 		virtual void	execute(Bureaucrat const &agen) const = 0;
@@ -46,23 +46,23 @@ class Form
 		bool			getSigne() const;
 		std::string		getName() const;
 		int	getGrade_exec() const;
-		Form &operator=(Form const &cpy);
+		AForm &operator=(AForm const &cpy);
 	private:
-		std::string 	name;//name of the form
-		bool			signe;//are form signed ?
+		std::string 	name;//name of the AForm
+		bool			signe;//are AForm signed ?
 		const int	grade;//lvl required sign
-		const int	grade_exec;//lvl required for execute the form
+		const int	grade_exec;//lvl required for execute the AForm
 };
 
-std::ostream&	operator<<(std::ostream& out, Form& f);
+std::ostream&	operator<<(std::ostream& out, AForm& f);
 
-// void	Form::execute(Bureaucrat const &agent) const
+// void	AForm::execute(Bureaucrat const &agent) const
 // {
 // 	if (this->getSigne() != true)
-// 		throw (NotSignedForm());
+// 		throw (NotSignedAForm());
 // 	if (this->getGrade() > this->getGrade_exec())
 // 		throw (GradeTooLowException());
-// 	std::cout << "Informs that " << this->name << " Form has been execute." << std::endl;
+// 	std::cout << "Informs that " << this->name << " AForm has been execute." << std::endl;
 // }
 
 // #endif
