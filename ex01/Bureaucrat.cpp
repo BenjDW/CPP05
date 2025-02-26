@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 08:22:18 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:51:39 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ std::string	Bureaucrat::getName()
 	return (this->name);
 }
 
-std::int32_t	Bureaucrat::getGrade()
+int	Bureaucrat::getGrade()
 {
 	return (this->Grade);
 }

@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:09:16 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 08:30:13 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:54:49 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ std::string	Form::getName()
 	return (this->name);
 }
 
-const int32_t	Form::getGrade_exec()
+int	Form::getGrade_exec()
 {
 	return (this->grade_exec);
 }
 
-const int32_t	Form::getGrade()
+int	Form::getGrade()
 {
 	return (this->grade);
 }
@@ -67,7 +67,7 @@ Form::Form(const std::string named) : signe (false), grade (11), grade_exec (12)
         throw GradeTooLowException();
 }
 
-Form::Form(Form &cpy) : signe (cpy.signe), grade(cpy.grade), grade_exec (cpy.grade_exec), name (cpy.name)
+Form::Form(Form &cpy) :  name (cpy.name), signe (cpy.signe), grade(cpy.grade), grade_exec (cpy.grade_exec)
 {
 }
 
