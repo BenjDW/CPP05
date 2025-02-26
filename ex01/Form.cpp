@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:09:16 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:54:49 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 03:10:26 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ std::ostream&	operator<<(std::ostream& out, Form& f)
 {
 	out << f.getName() << " Form , Form grade " << f.getGrade() << ", Form grade execution " << f.getGrade_exec() << std::endl;
 	return (out);
+}
+
+Form& Form::operator=(Form &cpy)
+{
+	this->name = cpy.getName();
+	this->signe = cpy.getSigne();
+	return *this;
 }
 
 void	Form::beSigned(Bureaucrat& agent)

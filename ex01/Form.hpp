@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:53:15 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 03:10:24 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Form
 		bool			getSigne();
 		std::string		getName();
 		int	getGrade_exec();
+		Form &operator=(Form &cpy);
 	private:
 		std::string 	name;//name of the form
 		bool			signe;//are form signed ?

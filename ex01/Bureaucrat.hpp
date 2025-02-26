@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:09 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:50:43 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:58:46 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ class Bureaucrat
 		int getGrade();
 		void	incremental_grade();
 		void	decremental_grade();
-		void	signForm(Form& form);//
+		void	signForm(Form& form);
+		Bureaucrat	&operator=(Bureaucrat cpy);
 	private:
 		const std::string	name;
 		int 		Grade;

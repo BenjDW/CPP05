@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:51:39 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:59:41 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ std::ostream&	operator<<(std::ostream& out, Bureaucrat& b)
 {
 	out << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl;
 	return (out);
+}
+
+Bureaucrat& Bureaucrat::operator=(Bureaucrat cpy)
+{
+	this->Grade = cpy.Grade;
+	return *this;
 }
 
 void	Bureaucrat::incremental_grade()
