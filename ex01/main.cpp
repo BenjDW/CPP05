@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:11 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/11 08:37:21 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:20:52 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main()
 {
 	try 
 	{
-		// Bureaucrat avec grade invalide (trop bas)
 		Bureaucrat lowGrade(151); // Va lancer une exception
 	} 
 	catch (const std::exception &e)
@@ -28,7 +27,6 @@ int main()
 
 	try 
 	{
-		// Bureaucrat avec grade invalide (trop haut)
 		Bureaucrat highGrade(0); // Va lancer une exception
 	} 
 	catch (const std::exception &e)
@@ -38,7 +36,6 @@ int main()
 
 	try
 	{
-		// Bureaucrat et Form valides
 		Bureaucrat b(11); // Grade maximum
 		Form taxForm;
 

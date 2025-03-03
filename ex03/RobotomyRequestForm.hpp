@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:10:10 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 07:57:24 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:41:27 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@
 #pragma once
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
-// class NotSignedForm : public std::exception
-// {
-// 	public:
-// 		const char* what() const noexcept
-// 		{
-// 			return "The AForm is not signed!";
-// 		}
-// };
 
 class RobotomyRequestForm : public AForm
 {

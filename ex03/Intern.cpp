@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:01:01 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/03/01 09:17:05 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:28:15 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ AForm* Intern::makeForm(std::string name, std::string target)
 {
     std::string formNames[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
-    // Utilisation de pointeurs sur méthode membre
     AForm* (Intern::*formCreators[])(std::string) = {
         &Intern::createShrubbery,
         &Intern::createRobotomy,

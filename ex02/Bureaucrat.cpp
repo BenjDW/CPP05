@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 07:56:50 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:23:19 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	Bureaucrat::signForm(AForm& AForm)
 	try 
 	{
 		AForm.beSigned(*this);
-		// if (AForm.getSigne() == true)
 			std::cout << this->name << " signed " << AForm.getName() << std::endl;
 	} 
 	catch (const std::exception& e) 
@@ -90,7 +89,6 @@ Bureaucrat::Bureaucrat(int lvl) : name ("ansar_tek")
 		throw (GradeTooLowException());
 }
 
-// return a copie du contenue de l'objet envoyer
 Bureaucrat::Bureaucrat(Bureaucrat &cpy)
 {
 	Grade = cpy.Grade;

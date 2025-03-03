@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:32:06 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 02:59:41 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:19:45 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	Bureaucrat::signForm(Form& form)
 	try 
 	{
 		form.beSigned(*this);
-		// if (form.getSigne() == true)
 			std::cout << this->name << " signed " << form.getName() << std::endl;
 	} 
 	catch (const std::exception& e) 
@@ -62,24 +61,23 @@ int	Bureaucrat::getGrade()
 	return (this->Grade);
 }
 
-Bureaucrat::Bureaucrat() : name ("bobby")
+Bureaucrat::Bureaucrat() : name ("bobby"), Grade (10)
 {
-	this->Grade = 10;
+	// this->Grade = 10;
 }
 
-Bureaucrat::Bureaucrat(int lvl) : name ("ansar_tek")
+Bureaucrat::Bureaucrat(int lvl) : name ("ansar_tek"), Grade (lvl)
 {
-	Grade = lvl;
+	// Grade = lvl;
 	if (Grade < 1)
 		throw (GradeTooHighException());
 	if (Grade > 150)
 		throw (GradeTooLowException());
 }
 
-// return a copie du contenue de l'objet envoyer
-Bureaucrat::Bureaucrat(Bureaucrat &cpy)
+Bureaucrat::Bureaucrat(Bureaucrat &cpy) : Grade (cpy.Grade)
 {
-	Grade = cpy.Grade;
+	// Grade = cpy.Grade;
 }
 
 Bureaucrat::~Bureaucrat()

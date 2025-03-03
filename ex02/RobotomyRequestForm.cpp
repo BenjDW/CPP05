@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 01:54:26 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 07:57:26 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:26:09 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &agent) const
 	if (agent.getGrade() > this->getGrade_exec())
 		throw (GradeTooLowException());	
 	std::cout << "BZZZZZZZT... *drilling noises* 🔩⚙️" << std::endl;
-	if (std::rand() % 2) // Génère un nombre pseudo-aléatoire
+	if (std::rand() % 2)
 		std::cout << "Informs that " << this->target << " has been robotomized in to a random human" << std::endl;
 	else
 		std::cout << "Informs that robotomy failed... oups céliant is still céliant" << std::endl;
