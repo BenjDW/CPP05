@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:09:16 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 03:10:26 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/20 08:39:37 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ std::ostream&	operator<<(std::ostream& out, Form& f)
 
 Form& Form::operator=(Form &cpy)
 {
-	this->name = cpy.getName();
+	// this->name = cpy.getName();
 	this->signe = cpy.getSigne();
 	return *this;
 }
@@ -42,7 +42,7 @@ bool	Form::getSigne()
 	return (this->signe);
 }
 
-std::string	Form::getName()
+const std::string	Form::getName()
 {
 	return (this->name);
 }
@@ -65,9 +65,9 @@ Form::Form() : name ("Triple The Tax"), signe (false), grade (11), grade_exec (1
         throw GradeTooLowException();
 }
 
-Form::Form(const std::string named) : signe (false), grade (11), grade_exec (12)
+Form::Form(const std::string named) : name (named), signe (false), grade (11), grade_exec (12)
 {
-	this->name = named;
+	// this->name = named;
 	if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)

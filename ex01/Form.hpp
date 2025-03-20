@@ -6,7 +6,7 @@
 /*   By: bde-wits <bde-wits@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:54:54 by bde-wits          #+#    #+#             */
-/*   Updated: 2025/02/26 03:10:24 by bde-wits         ###   ########.fr       */
+/*   Updated: 2025/03/20 08:40:02 by bde-wits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ class Form
 		void			beSigned(Bureaucrat& agent);
 		int	getGrade();
 		bool			getSigne();
-		std::string		getName();
+		const std::string		getName();
 		int	getGrade_exec();
 		Form &operator=(Form &cpy);
 	private:
-		std::string 	name;//name of the form
+		const std::string 	name;//name of the form
 		bool			signe;//are form signed ?
 		const int	grade;//lvl required sign
 		const int	grade_exec;//lvl required for execute the form
